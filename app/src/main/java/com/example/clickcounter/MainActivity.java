@@ -21,15 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
 
-        if(Integer.valueOf(szoveg.getText().toString())>0){
-            szoveg.setTextColor(Color.parseColor("#00FF00"));
-        }
-        else if(Integer.valueOf(szoveg.getText().toString())<0){
-            szoveg.setTextColor(Color.parseColor("#FF0000"));
-        }
-        else {
-            szoveg.setTextColor(Color.parseColor("#0000FF"));
-        }
+
 
 
         plussz.setOnClickListener(new View.OnClickListener() {
@@ -37,14 +29,25 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 szam = Integer.valueOf(szoveg.getText().toString());
                 szam += 1;
-                szoveg.setText(szam);
+                szoveg.setText(String.valueOf(szam));
+
+                if(szam>0){
+                    szoveg.setTextColor(Color.parseColor("#00FF00"));
+                }
+                else if(szam<0){
+                    szoveg.setTextColor(Color.parseColor("#FF0000"));
+                }
+                else if(szam==0) {
+                    szoveg.setTextColor(Color.parseColor("#0000FF"));
+                }
             }
         });
 
         szoveg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                szoveg.setText(0);
+                szoveg.setText("0");
+                szoveg.setTextColor(Color.parseColor("#0000FF"));
             }
         });
 
@@ -53,7 +56,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 szam = Integer.valueOf(szoveg.getText().toString());
                 szam -= 1;
-                szoveg.setText(szam);
+                szoveg.setText(String.valueOf(szam));
+
+                if(szam>0){
+                    szoveg.setTextColor(Color.parseColor("#00FF00"));
+                }
+                else if(szam<0){
+                    szoveg.setTextColor(Color.parseColor("#FF0000"));
+                }
+                else if(szam==0) {
+                    szoveg.setTextColor(Color.parseColor("#0000FF"));
+                }
             }
         });
 
